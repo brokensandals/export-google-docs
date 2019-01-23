@@ -1,4 +1,5 @@
 Google Apps Script that exports all your Google Docs/Sheets/Slides into docx/xlsx/pptx files and PDFs into a folder in your Google Drive.
+For more info and step-by-step setup instructions, see here: http://brokensandals.net/google-docs-backup
 
 Replace INSERT_FOLDER_ID_HERE with the ID of the folder you want backups to be placed in.
 
