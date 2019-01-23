@@ -12,3 +12,5 @@ Remove the `file.getOwner()` check from the `backupAll` method if you want to ch
 Zipping the backup files ensures that they don't clutter up the recent activity list for Docs/Sheets/Slides.
 - The script depends on the lastUpdated dates being correct on both the input files and the files in the backup directory.
 If that seems problematic, you could change the `createOrUpdateFileForBlob` method to delete existing backup files rather than updating them.
+
+**As always, this code may have defects that prevent it from working properly. Use at your own risk and remember to periodically verify that your backups are actually working as expected.**
