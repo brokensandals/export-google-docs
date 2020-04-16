@@ -21,7 +21,7 @@ function backupAll() {
     const files = DriveApp.getFilesByType(mimeType);
     while (files.hasNext()) {
       const file = files.next();
-      if (file.getOwner().getEmail() === Session.getActiveUser().getEmail()) {
+      if (file.getOwner() && file.getOwner().getEmail() === Session.getActiveUser().getEmail()) {
         toZip.push(...buildExports(file));
       }
     }
@@ -56,4 +56,3 @@ function getNativeBlob(file, targetName) {
   blob.setName(targetName + extension);
   return blob;
 }
-
