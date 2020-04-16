@@ -19,7 +19,7 @@ function backupAll() {
     var files = DriveApp.getFilesByType(mimeType);
     while (files.hasNext()) {
       var file = files.next();
-      if (file.getOwner().getEmail() == Session.getActiveUser().getEmail()) {
+      if (file.getOwner() && file.getOwner().getEmail() == Session.getActiveUser().getEmail()) {
         backup(file, backupFolder);
       }
     }
