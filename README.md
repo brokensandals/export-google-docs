@@ -21,6 +21,11 @@ You'll need to take care of that yourself if you don't want the number of zips t
 Only files that you own (as opposed to files others have shared with you) will be backed up.
 Remove the `file.getOwner()` check from the `backupAll` method if you want to change that.
 
+## Limitations
+
+Google's export API has a file size limit of 10MB.
+If the exported form of a particular document is larger than that, this script will not be able to back it up.
+
 ## Short instructions
 
 1. Create a new [Google Apps Script](https://script.google.com/) project and copy the [GoogleDocsBackup.gs script](GoogleDocsBackup.gs) file into it.
