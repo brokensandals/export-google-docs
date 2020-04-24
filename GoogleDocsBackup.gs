@@ -10,7 +10,7 @@ NATIVE_EXTENSIONS[MimeType.GOOGLE_DOCS] = '.docx';
 NATIVE_EXTENSIONS[MimeType.GOOGLE_SHEETS] = '.xlsx';
 NATIVE_EXTENSIONS[MimeType.GOOGLE_SLIDES] = '.pptx';
 
-var BACKUP_MIME_TYPES = Object.keys(NATIVE_MIME_TYPES);
+var BACKUP_MIME_TYPES = Object.keys(NATIVE_MIME_TYPES).concat([MimeType.PDF]);
 
 function backupAll() {
   const backupFolder = DriveApp.getFolderById(BACKUP_FOLDER_ID);
@@ -30,10 +30,16 @@ function backup(file, folder) {
   var targetName = file.getName() + ' ' + file.getId();
   var lastUpdated = file.getLastUpdated();
   
-  var pdf = getPdfBlob(file);
-  var native = getNativeBlob(file);
+  var toZip;
+  if (NATIVE_MIME_TYPES[file.getMimeType()]) {
+    var pdf = getPdfBlob(file);
+    var native = getNativeBlob(file);
+    toZip = [pdf, native];
+  } else {
+    toZip = [file];
+  }
   
-  var zip = Utilities.zip([pdf, native], targetName + '.zip');
+  var zip = Utilities.zip(toZip, targetName + '.zip');
   
   createOrUpdateFileForBlob(zip, folder, lastUpdated);
 }

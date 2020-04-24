@@ -11,7 +11,10 @@ If this version doesn't exactly match your needs, see the the [list of branches]
 
 ## About this version
 
-For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated.
+In addition to backing up docs/spreadsheets/powerpoints, this version also backs up any PDF documents in your Drive.
+Each PDF is put into a separate zip file in the backup folder.
+
+For docs/spreadsheets/powerpoints, both an Office file (docx/xlsx/pptx) and a PDF are generated.
 Those two files are combined into a zip file that's placed in the backup folder.
 (Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
 There is one zip file per original document.
