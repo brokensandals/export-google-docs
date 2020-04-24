@@ -27,8 +27,8 @@ function backupAll() {
 }
 
 function backup(file, folder) {
-  var targetName = file.getName() + ' ' + file.getId();
   var lastUpdated = file.getLastUpdated();
+  var targetName = file.getName() + ' ' + file.getId() + '-' + lastUpdated.toISOString().slice(0, 10);
   
   var pdf = getPdfBlob(file);
   var native = getNativeBlob(file);

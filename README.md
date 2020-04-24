@@ -16,11 +16,11 @@ Those two files are combined into a zip file that's placed in the backup folder.
 (Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
 There is one zip file per original document.
 
-There is no timestamp or sequence number added to the zip file name, so only the most recent backup of each document is kept.
+The date is appended to each zip file's name.
+If you run the script more than once in a day, the later run might overwrite backups from earlier in the day.
 
-The script does not update a zip file if the original document has not changed since the zip was last updated.
-To determine this, it assumes the `lastUpdated` dates are correct on both the input files and the files in the backup directory.
-If that seems problematic, you could change the `createOrUpdateFileForBlob` method to delete existing backup files rather than updating them.
+The script does not delete zip files from earlier dates.
+You'll need to take care of that yourself if you don't want the number of zips to grow forever.
 
 Only files that you own (as opposed to files others have shared with you) will be backed up.
 Remove the `file.getOwner()` check from the `backupAll` method if you want to change that.
