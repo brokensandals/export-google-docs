@@ -12,15 +12,11 @@ If this version doesn't exactly match your needs, see the the [list of branches]
 ## About this version
 
 For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated.
-Those two files are combined into a zip file that's placed in the backup folder.
-(Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
-There is one zip file per original document.
+All the Office files and PDFs are combined into a single zip file that's placed in the backup folder.
+The zip file will be given a name such as `GoogleDocs-2020-04-01TT031532Z.zip`.
 
-There is no timestamp or sequence number added to the zip file name, so only the most recent backup of each document is kept.
-
-The script does not update a zip file if the original document has not changed since the zip was last updated.
-To determine this, it assumes the `lastUpdated` dates are correct on both the input files and the files in the backup directory.
-If that seems problematic, you could change the `createOrUpdateFileForBlob` method to delete existing backup files rather than updating them.
+The script does not delete old zip files.
+You'll need to take care of that yourself if you don't want the number of zips to grow forever.
 
 Only files that you own (as opposed to files others have shared with you) will be backed up.
 Remove the `file.getOwner()` check from the `backupAll` method if you want to change that.
