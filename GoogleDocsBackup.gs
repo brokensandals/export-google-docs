@@ -31,7 +31,26 @@ function backup(file, folder) {
   var lastUpdated = file.getLastUpdated();
   
   var pdf = getPdfBlob(file);
-  var native = getNativeBlob(file);
+  
+  var native;
+  if (file.getMimeType() === MimeType.GOOGLE_SHEETS) {
+    // Create a copy of the file with all formulas replaced with their literal values
+    // This code was adapted from https://support.google.com/docs/thread/17355100?hl=en&msgid=17382472
+    var copy = file.makeCopy('VALUES ' + file.getName());
+    var spreadsheet = SpreadsheetApp.open(copy);
+    var sheets = spreadsheet.getSheets();
+    for (var si = 0; si < sheets.length; si++) {
+      var sheet = sheets[si];
+      if (sheet.getLastRow() > 0 && sheet.getLastColumn() > 0) {
+        var range = sheet.getRange(1, 1, sheet.getLastRow(), sheet.getLastColumn());
+        range.setValues(range.getValues());
+      }
+    }
+    native = getNativeBlob(copy);
+    copy.setTrashed(true);
+  } else {
+    native = getNativeBlob(file);
+  }
   
   var zip = Utilities.zip([pdf, native], targetName + '.zip');
   

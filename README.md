@@ -11,6 +11,9 @@ If this version doesn't exactly match your needs, see the the [list of branches]
 
 ## About this version
 
+When backing up spreadsheets, this version of the script tries to remove all formulas and replace them with their current values.
+It doesn't work in all cases; sometimes formulas remain, and I have not investigated why.
+
 For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated.
 Those two files are combined into a zip file that's placed in the backup folder.
 (Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
