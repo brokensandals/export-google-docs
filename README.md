@@ -11,14 +11,12 @@ If this version doesn't exactly match your needs, see the the [list of branches]
 
 ## About this version
 
-For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated.
-Those two files are combined into a zip file that's placed in the backup folder.
-(Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
-There is one zip file per original document.
+For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated and placed in the backup folder.
+This version of the script does not wrap the backups in a zip file; one downside of this is that the backup files will appear in your recent files list on docs.google.com.
 
-There is no timestamp or sequence number added to the zip file name, so only the most recent backup of each document is kept.
+There is no timestamp or sequence number added to filenames, so only the most recent backup of each document is kept.
 
-The script does not update a zip file if the original document has not changed since the zip was last updated.
+The script does not update a backup file if the original document has not changed since the backup file was last updated.
 To determine this, it assumes the `lastUpdated` dates are correct on both the input files and the files in the backup directory.
 If that seems problematic, you could change the `createOrUpdateFileForBlob` method to delete existing backup files rather than updating them.
 

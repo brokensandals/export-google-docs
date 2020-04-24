@@ -27,15 +27,13 @@ function backupAll() {
 }
 
 function backup(file, folder) {
-  var targetName = file.getName() + ' ' + file.getId();
   var lastUpdated = file.getLastUpdated();
   
   var pdf = getPdfBlob(file);
   var native = getNativeBlob(file);
   
-  var zip = Utilities.zip([pdf, native], targetName + '.zip');
-  
-  createOrUpdateFileForBlob(zip, folder, lastUpdated);
+  createOrUpdateFileForBlob(pdf, folder, lastUpdated);
+  createOrUpdateFileForBlob(native, folder, lastUpdated);
 }
 
 function createOrUpdateFileForBlob(blob, folder, ifOlderThan) {
