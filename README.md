@@ -27,9 +27,12 @@ Remove the `file.getOwner()` check from the `backupAll` method if you want to ch
 
 ## Short instructions
 
-Replace INSERT_FOLDER_ID_HERE with the ID of the folder you want backups to be placed in.
+1. Create a new [Google Apps Script](https://script.google.com/) project and copy the [GoogleDocsBackup.gs script](GoogleDocsBackup.gs) file into it.
 
-Create a trigger to run the `backupAll` function if you want to do this on a schedule (e.g. nightly).
+2. In the script, replace INSERT_FOLDER_ID_HERE with the ID of the folder you want backups to be placed in.
+
+3. Run the `backupAll` function.
+You'll probably want to create a trigger to run it on a schedule (e.g. nightly).
 
 ## Long instructions
 
