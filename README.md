@@ -5,7 +5,7 @@ Google Apps Script that exports all your Google Docs/Sheets/Slides into docx/xls
 I originally posted this as a [gist](https://gist.github.com/brokensandals/6b77f73666323d6e4b94ff1df12a532a).
 I've made several variations on it in response to requests by others, as well as changes in my own needs.
 Using a regular repo makes these variants easier to keep track of.
-If this version doesn't exactly match your needs, see the the [list of branches](https://github.com/brokensandals/export-google-docs/branches) to see some of the ways the script can be adjusted.
+If this version doesn't exactly match your needs, see the the [list of branches](https://github.com/brokensandals/export-google-docs/branches/all) to see some of the ways the script can be adjusted.
 
 **As always, this code may have defects that prevent it from working properly. Use at your own risk and remember to periodically verify that your backups are actually working as expected.**
 
