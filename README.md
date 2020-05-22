@@ -11,6 +11,11 @@ If this version doesn't exactly match your needs, see the the [list of branches]
 
 ## About this version
 
+**This version is not currently working.**
+Other versions of the script do not handle files larger than 10MB; this is an unfinished attempt to fix that.
+Instead of using the export API, it uses the `exportLinks` attribute from file metadata.
+Currently, this will successfully download large files, but it fails trying to upload the exported file back to Google Drive.
+
 For each file, both an Office file (docx/xlsx/pptx) and a PDF are generated.
 Those two files are combined into a zip file that's placed in the backup folder.
 (Zipping the backup files ensures that they don't clutter up your recent activity list on docs.google.com.)
