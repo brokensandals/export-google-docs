@@ -1,3 +1,7 @@
+Update:
+
+I'm archiving this since I currently don't use Google Docs much any more and stopped bothering to back it up. The script still worked fine last time I checked.
+
 # export-google-docs
 
 Google Apps Script that exports all your Google Docs/Sheets/Slides into docx/xlsx/pptx files and PDFs in a folder in your Google Drive.
